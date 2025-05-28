@@ -1,2 +1,2 @@
-# roomies
+# roomies-frontend
 school airbnb
