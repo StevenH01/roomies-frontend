@@ -1,7 +1,19 @@
 /* lib/theme/tw-theme.css */
-:root{
-  --bg:#FAF7F0; --surface:#FFFFFF; --text:#0F172A; --muted:#6B7280;
-  --border:#E7E5E4; --primary:#0E7C66; --primary-contrast:#FFFFFF;
-  --accent:#2EB5A8; --secondary:#E9F6F2;
-  --radius-md:16px; --radius-lg:24px;
+
+:root {
+  --bg: #faf7f0;    /* Warm Paper look */
+  --surface: #ffffff;
+
+  --text: #0f172a;    /* Charcoal Coloring */
+  --muted: #6b7280;
+  --border: #e7e5e4;
+
+  /* Updated greens for aestetics */
+  --primary: #4a5c1b;   /* Green for buttons */
+  --primary-contrast: #ffffff;
+  --accent: #8e9b79;    /* Sage block background */
+  --secondary: #e9f6f2;
+
+  --radius-mid: 16px;
+  --radius-lg: 24px;
 }
