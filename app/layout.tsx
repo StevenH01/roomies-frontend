@@ -1,40 +1,27 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
+import "./../styles/globals.css";
+import "../lib/theme/tw-theme.css";
+
+import ThemeRegistry from "@/lib/mui/ThemeRegistry";
 import { ThemeProvider, CssBaseline } from "@mui/material";
 import { muiTheme } from "@/lib/theme/muiTheme";
 import SiteHeader from "@/components/header/SiteHeader";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
-export const metadata: Metadata = {
-  title: "Roomies",
-  description: "Student housing made easy: Roomies helps you find compatible roommates with verified profiles and in-app chat to move in faster.",
+export const metadata = {
+  title: "CampusStay — Students-only Housing & Roommates",
+  description: "A safe place for students with .edu verification to find housing and roommates.",
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <ThemeProvider theme={muiTheme}>
-          <CssBaseline />
-          <SiteHeader />
-          <main className="mx-auto max-w-7xl px-4 lg:px-6">{children}</main>
-        </ThemeProvider>
+      <body className="bg-bg text-text">
+        <ThemeRegistry>
+          <ThemeProvider theme={muiTheme}>
+            <CssBaseline />
+            <SiteHeader />
+            <main className="mx-auto max-w-7xl px-4 lg:px-6">{children}</main>
+          </ThemeProvider>
+        </ThemeRegistry>
       </body>
     </html>
   );

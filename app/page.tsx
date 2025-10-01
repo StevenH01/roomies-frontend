@@ -1,9 +1,10 @@
-export default function HomePage() {
+// app/page.tsx
+export default function Home() {
   return (
-    <div className="py-10 space-y-24">
+    <div className="space-y-24 py-10">
       <section id="benefits" className="scroll-mt-24">
         <h2 className="text-2xl font-semibold">Benefits</h2>
-        <p className="mt-2 text-muted">Students-only network, verified .edu, safer chats, and curated roommate matches.</p>
+        <p className="mt-2 text-muted">Students-only network, verified .edu, safer chats, curated roommate matches.</p>
       </section>
 
       <section id="specs" className="scroll-mt-24">
@@ -13,12 +14,12 @@ export default function HomePage() {
 
       <section id="how-to" className="scroll-mt-24">
         <h2 className="text-2xl font-semibold">How-to</h2>
-        <p className="mt-2 text-muted">1) Verify .edu → 2) Set preferences → 3) Browse and message → 4) Schedule a tour.</p>
+        <p className="mt-2 text-muted">1) Verify .edu → 2) Set preferences → 3) Browse & message → 4) Schedule a tour.</p>
       </section>
 
       <section id="contact" className="scroll-mt-24">
         <h2 className="text-2xl font-semibold">Contact Us</h2>
-        <p className="mt-2 text-muted">Questions? Reach us at team@campusstay.app</p>
+        <p className="mt-2 text-muted">Questions? team@campusstay.app</p>
       </section>
     </div>
   );

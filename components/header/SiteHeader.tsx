@@ -1,9 +1,10 @@
+// components/header/SiteHeader.tsx
 "use client";
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
-import { IconButton, Drawer } from "@mui/material";
+import { useEffect, useState } from "react";
+import { Drawer, IconButton } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 
 const NAV = [
@@ -16,35 +17,44 @@ const NAV = [
 export default function SiteHeader() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const [elevated, setElevated] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setElevated(window.scrollY > 4);
+    onScroll(); window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border/70 bg-surface/90 backdrop-blur supports-[backdrop-filter]:bg-surface/80">
+    <header
+      className={[
+        "sticky top-0 z-50",
+        "border-b border-border/70",
+        "bg-surface/90 backdrop-blur supports-[backdrop-filter]:bg-surface/80",
+        elevated ? "shadow-sm" : ""
+      ].join(" ")}
+    >
       <div className="mx-auto flex h-14 w-full max-w-7xl items-center px-4 lg:h-16 lg:px-6">
         {/* Left: Logo */}
         <Link href="/" className="shrink-0 text-base font-bold tracking-tight text-text">
           CampusStay
         </Link>
 
-        {/* Center: Nav (desktop only) */}
+        {/* Center: Nav */}
         <nav className="mx-auto hidden items-center gap-6 md:flex">
-          {NAV.map((item) => {
-            const active = pathname === item.href;
-            return (
-              <a
-                key={item.href}
-                href={item.href}
-                className={[
-                  "text-sm transition-colors",
-                  active ? "text-text" : "text-muted hover:text-text",
-                ].join(" ")}
-              >
-                {item.label}
-              </a>
-            );
-          })}
+          {NAV.map((item) => (
+            <a
+              key={item.href}
+              href={item.href}
+              className="text-sm text-muted transition-colors hover:text-text"
+              aria-label={item.label}
+            >
+              {item.label}
+            </a>
+          ))}
         </nav>
 
-        {/* Right: CTA + Mobile menu */}
+        {/* Right: CTA + Mobile trigger */}
         <div className="ml-auto flex items-center gap-2">
           <Link
             href="/onboarding/verify"
@@ -60,10 +70,7 @@ export default function SiteHeader() {
             aria-label="Open menu"
             onClick={() => setOpen(true)}
             size="small"
-            sx={{
-              color: "var(--text)",
-              "&:hover": { backgroundColor: "rgba(0,0,0,0.04)" },
-            }}
+            sx={{ color: "var(--text)" }}
           >
             <MenuIcon fontSize="small" />
           </IconButton>
@@ -73,8 +80,8 @@ export default function SiteHeader() {
       {/* Mobile Drawer */}
       <Drawer anchor="right" open={open} onClose={() => setOpen(false)}>
         <div className="w-72 bg-surface p-4">
-          <div className="mb-4 text-base font-semibold">Menu</div>
-          <nav className="flex flex-col gap-2">
+          <div className="mb-3 text-base font-semibold">Menu</div>
+          <nav className="flex flex-col">
             {NAV.map((item) => (
               <a
                 key={item.href}
