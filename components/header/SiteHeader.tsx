@@ -37,7 +37,7 @@ export default function SiteHeader() {
       <div className="mx-auto flex h-14 w-full max-w-7xl items-center px-4 lg:h-16 lg:px-6">
         {/* Left: Logo */}
         <Link href="/" className="shrink-0 text-base font-bold tracking-tight text-text">
-          CampusStay
+          Roomies
         </Link>
 
         {/* Center: Nav */}
@@ -70,7 +70,7 @@ export default function SiteHeader() {
             aria-label="Open menu"
             onClick={() => setOpen(true)}
             size="small"
-            sx={{ color: "var(--text)" }}
+            sx={{ color: "var(--text)", display: { xs: "inline-flex", lg: "none" } }}
           >
             <MenuIcon fontSize="small" />
           </IconButton>
