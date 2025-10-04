@@ -2,6 +2,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Drawer, IconButton } from "@mui/material";
@@ -34,14 +35,29 @@ export default function SiteHeader() {
         elevated ? "shadow-sm" : ""
       ].join(" ")}
     >
-      <div className="mx-auto flex h-14 w-full max-w-7xl items-center px-4 lg:h-16 lg:px-6">
+      <div className="mx-auto grid h-14 w-full max-w-7xl grid-cols-3 items-center px-4 lg:h-16 lg:px-6">
         {/* Left: Logo */}
-        <Link href="/" className="shrink-0 text-base font-bold tracking-tight text-text">
-          Roomies
-        </Link>
+        <div className="justify-self-start">
+          <Link
+            href="/"
+            aria-label="Roomies home"
+            className="flex items-center gap-2.5 text-text font-bold tracking-tight whitespace-nowrap"
+          >
+            <Image
+              src="/room-logo.png"
+              alt="Roomies logo"
+              width={40}               // explicit intrinsic size prevents shift
+              height={40}
+              priority
+              className="block h-8 w-8 md:h-10 md:w-10 object-contain"
+            />
+            {/* keep line-height tight so baseline doesn't sag next to the icon */}
+            <span className="text-xl md:text-2xl leading-none">Roomies</span>
+          </Link>
+        </div>
 
-        {/* Center: Nav */}
-        <nav className="mx-auto hidden items-center gap-6 md:flex">
+        {/* Center: Nav (now truly centered) */}
+        <nav className="hidden md:flex justify-self-center items-center gap-6">
           {NAV.map((item) => (
             <a
               key={item.href}
@@ -55,7 +71,7 @@ export default function SiteHeader() {
         </nav>
 
         {/* Right: CTA + Mobile trigger */}
-        <div className="ml-auto flex items-center gap-2">
+        <div className="justify-self-end flex items-center gap-2">
           <Link
             href="/onboarding/verify"
             className="hidden rounded-full bg-primary px-3 py-1.5 text-sm font-medium text-primary-foreground md:inline-block"
@@ -65,43 +81,17 @@ export default function SiteHeader() {
             Learn More
           </Link>
 
+          {/* show only on small screens */}
           <IconButton
-            className="md:hidden"
             aria-label="Open menu"
             onClick={() => setOpen(true)}
             size="small"
-            sx={{ color: "var(--text)", display: { xs: "inline-flex", lg: "none" } }}
+            sx={{ color: "var(--text)", display: { xs: "inline-flex", md: "none" } }}
           >
             <MenuIcon fontSize="small" />
           </IconButton>
         </div>
       </div>
-
-      {/* Mobile Drawer */}
-      <Drawer anchor="right" open={open} onClose={() => setOpen(false)}>
-        <div className="w-72 bg-surface p-4">
-          <div className="mb-3 text-base font-semibold">Menu</div>
-          <nav className="flex flex-col">
-            {NAV.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                onClick={() => setOpen(false)}
-                className="rounded-md px-2 py-2 text-sm text-text hover:bg-secondary"
-              >
-                {item.label}
-              </a>
-            ))}
-          </nav>
-          <Link
-            href="/onboarding/verify"
-            onClick={() => setOpen(false)}
-            className="mt-4 inline-flex w-full items-center justify-center rounded-full bg-primary px-3 py-2 text-sm font-medium text-primary-foreground"
-          >
-            Learn More
-          </Link>
-        </div>
-      </Drawer>
     </header>
   );
 }

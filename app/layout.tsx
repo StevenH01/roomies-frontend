@@ -7,7 +7,7 @@ import { muiTheme } from "@/lib/theme/muiTheme";
 import SiteHeader from "@/components/header/SiteHeader";
 
 export const metadata = {
-  title: "CampusStay — Students-only Housing & Roommates",
+  title: "Roomies — Students-only Housing & Roommates",
   description: "A safe place for students with .edu verification to find housing and roommates.",
 };
 

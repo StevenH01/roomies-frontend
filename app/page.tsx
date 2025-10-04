@@ -20,7 +20,7 @@ export default function Home() {
       <section className="mx-auto mt-10 max-w-5xl px-4 lg:px-6">
         <div className="rounded-[22px] bg-surface shadow-card ring-1 ring-border/60 overflow-hidden">
           {/* imgage placeholder */}
-          <Image src="/placeholder.jpg" alt="Roomies preview" fill className="object-cover" />
+          <Image src="/holder.png" alt="Roomies preview" fill className="object-cover" />
         </div>
         <div className="flex items-center justify-between px-4 py-3 text-sm text-muted">
             <span>Students-only • Verified .edu • Safer chats</span>
