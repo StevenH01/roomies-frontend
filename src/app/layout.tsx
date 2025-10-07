@@ -1,33 +1,25 @@
+// src/app/layout.tsx
 import type { Metadata } from "next";
 import "./globals.css";
 import { Roboto } from "next/font/google";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter";
-import { ThemeProvider, CssBaseline } from "@mui/material";
-import theme from "../theme";
+import { ThemeProvider } from "@mui/material/styles";
+import CssBaseline from "@mui/material/CssBaseline";
+import theme, { PRIMARY } from "../theme";
 
-const roboto = Roboto({
-  weight: ["300", "400", "500", "700"],
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-roboto",
-});
+const roboto = Roboto({ weight: ["300","400","500","700"], subsets: ["latin"], display: "swap", variable: "--font-roboto" });
 
 export const metadata: Metadata = {
   title: "Roomies — Find your next roommate",
-  description:
-    "Roomies helps students and young professionals find great roommates faster—browse profiles, match on preferences, and connect securely.",
+  description: "Find compatible roommates faster with verified profiles, preference matching, and secure messaging.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={roboto.variable}>
-      <body>
-        <AppRouterCacheProvider
-          options={{
-            // Important when mixing MUI with Tailwind/CSS: keeps MUI styles layered under utilities
-            enableCssLayer: true,
-          }}
-        >
+      {/* this line sets the CSS var used by Tailwind/custom CSS */}
+      <body style={{ ["--color-primary" as any]: PRIMARY }}>
+        <AppRouterCacheProvider options={{ enableCssLayer: true }}>
           <ThemeProvider theme={theme}>
             <CssBaseline />
             {children}
