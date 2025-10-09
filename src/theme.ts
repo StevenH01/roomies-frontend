@@ -1,18 +1,19 @@
-// src/theme.ts
 "use client";
 import { createTheme } from "@mui/material/styles";
 
-export const PRIMARY = "#2563eb"; // keep your brand color here (single source)
+export const PRIMARY = "#485C48"; // brand green
+export const MUTED   = "#64748b"; // slate-500
 
 const theme = createTheme({
-  // optional, but nice with v7 for CSS-vars-based color math
-  cssVariables: { nativeColor: true }, // or just `cssVariables: true`
+  cssVariables: true,
   palette: {
-    primary: { main: PRIMARY }, // ✅ must be a real color, not var()
-    text: { secondary: "#64748b" },
+    primary: { main: PRIMARY }, // MUI requires real color values here
+    text: { secondary: MUTED },
   },
   shape: { borderRadius: 12 },
-  typography: { fontFamily: "var(--font-roboto)" },
+  typography: {
+    fontFamily: "var(--font-roboto)",
+  },
 });
 
 export default theme;

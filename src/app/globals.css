@@ -3,9 +3,6 @@
 
 @theme {
   --font-sans: var(--font-roboto), ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
-  --color-primary: #2563eb; /* Indigo-600 vibe */
-  --color-muted: #64748b;   /* Slate-500 */
   --rounded-2xl: 1.25rem;
 }
-
 html, body, :root { height: 100%; }
