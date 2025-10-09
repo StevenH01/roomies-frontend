@@ -1,28 +1,24 @@
 "use client";
-import { Button } from "@mui/material";
-import RoommateSearch from "./RoommateSearch";
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-white to-slate-50">
+    <section className="relative overflow-hidden bg-gradient-to-b from-white to-emerald-50">
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-16 md:grid-cols-2 md:py-24">
         <div className="flex flex-col justify-center">
-          <h1 className="text-4xl font-bold tracking-tight md:text-6xl">
-            Find your next roommate <span className="text-[color:var(--color-primary)]">faster</span>
-          </h1>
+          <Typography variant="h2" component="h1" className="!text-4xl md:!text-6xl !font-bold !leading-tight">
+            Browse roommates <span className="text-[var(--color-primary)]">by campus, budget & vibe.</span>
+          </Typography>
           <p className="mt-4 text-lg text-gray-600">
-            Verified profiles, preference matching, and secure messaging—tailored for students and young professionals.
+            Verified profiles and preference matching make finding a great roommate simple.
           </p>
           <div className="mt-6 flex gap-3">
-            <Button variant="contained" href="#search">Start Browsing</Button>
-            <Button variant="outlined" href="#benefits">Learn More</Button>
+            <Button variant="contained" href="#cta" size="large">Get Started</Button>
+            <Button variant="outlined" href="#benefits" size="large">Learn More</Button>
           </div>
         </div>
-        <div className="md:pl-8">
-          <div id="search" className="md:pt-8">
-            <RoommateSearch />
-          </div>
-        </div>
+        =
       </div>
     </section>
   );

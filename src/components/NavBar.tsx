@@ -1,29 +1,25 @@
-"use client";
 import Link from "next/link";
-import { Button } from "@mui/material";
 
-const nav = [
+const items = [
   { href: "#benefits", label: "Benefits" },
-  { href: "#how", label: "How it Works" },
-  { href: "#contact", label: "Contact" },
+  { href: "#specs", label: "Specifications" },
+  { href: "#how", label: "How-to" },
+  { href: "#contact", label: "Contact Us" },
 ];
 
 export default function NavBar() {
   return (
-    <header className="sticky top-0 z-50 bg-white/70 backdrop-blur supports-[backdrop-filter]:bg-white/60">
+    <header className="sticky top-0 z-50 bg-white/80 backdrop-blur">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3">
         <Link href="/" className="text-xl font-bold tracking-tight">Roomies</Link>
         <nav className="hidden gap-6 md:flex">
-          {nav.map((n) => (
-            <a key={n.href} href={n.href} className="text-sm text-gray-600 hover:text-gray-900">
-              {n.label}
+          {items.map(i => (
+            <a key={i.href} href={i.href} className="text-sm text-gray-600 hover:text-gray-900">
+              {i.label}
             </a>
           ))}
         </nav>
-        <div className="flex items-center gap-2">
-          <Button variant="text" href="#search">Browse</Button>
-          <Button variant="contained" href="#cta">Get Started</Button>
-        </div>
+        <a href="#cta" className="rounded-lg bg-[var(--color-primary)] px-4 py-2 text-sm font-medium text-white">Learn More</a>
       </div>
     </header>
   );
