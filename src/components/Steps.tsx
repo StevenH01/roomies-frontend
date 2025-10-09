@@ -1,9 +1,8 @@
-"use client";
 export default function Steps() {
   const steps = [
-    { title: "Get Started", desc: "Create your profile in minutes." },
-    { title: "Customize", desc: "Add preferences & verification." },
-    { title: "Match", desc: "Browse compatible roommates." },
+    { title: "Get Started", desc: "Create your profile and set your budget & timeline." },
+    { title: "Customize",   desc: "Choose preferences (quiet hours, pets, cleanliness, etc.)." },
+    { title: "Match & Chat",desc: "Browse compatible profiles and message safely in-app." },
   ];
   return (
     <section id="how" className="bg-white">

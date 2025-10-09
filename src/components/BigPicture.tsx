@@ -1,10 +1,9 @@
-"use client";
 export default function BigPicture() {
   const points = [
-    "Spot great matches in seconds.",
-    "Share shortlists with potential roommates.",
-    "Elevate your search with safety + verification.",
-    "Your housing snapshot at a glance.",
+    "Spot great fits in seconds—no more endless scrolling.",
+    "Get everyone on the same page with shareable shortlists.",
+    "Make intros easy with built-in rules & expectations.",
+    "Your housing snapshot: budget, distance, and vibe at a glance.",
   ];
   return (
     <section className="bg-white">
