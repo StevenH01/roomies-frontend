@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function LandingIntro() {
   return (
     <div className="min-h-screen bg-[color:var(--bg)] text-[color:var(--fg)]">
@@ -28,7 +30,10 @@ export default function LandingIntro() {
       <header className="sticky top-0 z-20 backdrop-blur supports-[backdrop-filter]:bg-[color:var(--bg)]/70">
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-4">
           <a href="#" className="flex items-center gap-3">
-            <div className="h-8 w-8 rounded-lg bg-[color:var(--brand)]" />
+            <div
+              className="h-8 w-8 rounded-lg bg-[color:var(--brand)] bg-center bg-no-repeat bg-contain"
+              style={{ backgroundImage: "url('/room-logo.png')" }} // file in /public
+            />
             <span className="text-sm font-semibold tracking-wide text-[color:var(--brand-ink)]">Roomies</span>
           </a>
           <nav className="hidden items-center gap-6 text-sm text-[color:var(--muted)] md:flex">
