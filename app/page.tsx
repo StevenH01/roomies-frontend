@@ -1,24 +1,9 @@
 import Image from "next/image";
+import "./globals.css"
 
 export default function LandingIntro() {
   return (
     <div className="min-h-screen bg-[color:var(--bg)] text-[color:var(--fg)]">
-      {/* CSS variables to mirror the Figma palette. Adjust to your brand. */}
-      <style
-        dangerouslySetInnerHTML={{
-          __html: `:root{
-            --bg:#F6F3EB; /* warm creme */
-            --fg:#0E0F0C; /* near-black */
-            --brand:#0F3D2E; /* deep green */
-            --brand-ink:#0B2C22; /* darker brand for headings */
-            --muted:#6B6F76; /* neutral text */
-            --card:#FFFFFF; /* surfaces */
-            --ring:#D8D0C2; /* subtle borders */
-            --accent:#EDE7DB; /* soft accent */
-          }`
-        }}
-      />
-
       {/* soft background ornaments */}
       <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
         <div className="absolute -top-24 -left-24 h-72 w-72 rounded-full opacity-30 blur-3xl"
